@@ -5,15 +5,15 @@
 
 char* Crps(int choice){
     // 0 is rock, 1 is paper, 2 is scissors
-    // we will return 4 for win, 5 for lose, 6 for draw
 
-    // random is computer's choice
-    //int random = 1;
+    // allocate space for result to be returned
     char *result = malloc(10 * sizeof(char));
-    // generate random number from 1 - 3
+    
+    // generate a random number
     srand(time(0));
     int random = rand() % 3;
-    // determine win, lose, draw and print result
+
+    // determine win, lose, draw and return the result as string
     if (random == 0){
         if (choice == 1) {
             strcpy(result, "Win");
@@ -62,11 +62,12 @@ char* Crps(int choice){
 
 static PyObject *rps(PyObject *self, PyObject *args)
 {
+    // put passed argument as choice to save user choice
     const int *choice;
-
     if (!PyArg_ParseTuple(args, "i", &choice))
         return NULL;
     
+    // call Crps function and return the string result to Python
     char answer[15];
     strcpy(answer, Crps(choice));
     return PyUnicode_FromFormat(answer);
