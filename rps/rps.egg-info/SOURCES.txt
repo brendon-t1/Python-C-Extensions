@@ -1,0 +1,6 @@
+rps_module.c
+setup.py
+rps.egg-info/PKG-INFO
+rps.egg-info/SOURCES.txt
+rps.egg-info/dependency_links.txt
+rps.egg-info/top_level.txt
