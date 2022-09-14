@@ -8,7 +8,8 @@ static PyObject *return_string(PyObject *self, PyObject *args)
     if (!PyArg_ParseTuple(args, "i", &passed))
         return NULL;
     
-    return PyUnicode_FromFormat("It Worked!!!");
+    const char answer[15] = "It Worked";
+    return PyUnicode_FromFormat(answer);
 }
 
 static PyMethodDef returnStringMethods[] = {
